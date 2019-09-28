@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/back-test-icon.png</file>
+        <file>icons/comm-test-icon.png</file>
+        <file>icons/front-test-icon.png</file>
+        <file>icons/injection-test-icon.png</file>
+        <file>icons/pilot-view-icon.png</file>
+        <file>icons/turbo-test-icon.png</file>
+    </qresource>
+</RCC>
