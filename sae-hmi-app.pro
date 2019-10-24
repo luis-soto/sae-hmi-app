@@ -1,5 +1,5 @@
 QT       += core gui
-
+greaterThan(QT_MAJOR_VERSION, 4): QT += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -15,15 +15,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp \
-    base-test-window.cpp
+SOURCES += main.cpp
+SOURCES += can-interface/can-interface.cpp
+SOURCES += base-plot.cpp
+SOURCES += base-test-window.cpp
+SOURCES += qcustomplot/qcustomplot.cpp
 SOURCES += main-sae-hmi-app.cpp
 
-HEADERS += main-sae-hmi-app.h \
-    base-test-window.h
+HEADERS += main-sae-hmi-app.h
+HEADERS += can-interface/can-interface.h
+HEADERS += base-plot.h
+HEADERS += base-test-window.h
+HEADERS += qcustomplot/qcustomplot.h
 
-FORMS += main-sae-hmi-app.ui \
-    base-test-window.ui
+FORMS += main-sae-hmi-app.ui
+FORMS += base-plot.ui
+FORMS += base-test-window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

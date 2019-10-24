@@ -1,0 +1,125 @@
+{
+    "tests":
+    [
+        {
+            "name": "Front Test",
+            "variables":
+            [
+                {
+                    "name": "Aceleração Lateral Frontal",
+                    "id": 1
+                },
+                {
+                    "name": "Aceleração Longitudinal Frontal",
+                    "id": 2
+                },
+                {
+                    "name": "Aceleração Lateral (CG)",
+                    "id": 3
+                },
+                {
+                    "name": "Aceleração Longitudinal (CG)",
+                    "id": 4
+                },
+                {
+                    "name": "Ângulo de Direção",
+                    "id": 5
+                },
+                {
+                    "name": "Posição Pedal Freio",
+                    "id": 6
+                },
+                {
+                    "name": "Tensão da Bateria",
+                    "id": 7
+                },
+                {
+                    "name": "Corrente da Bateria",
+                    "id": 8
+                }
+            ]
+        },
+        {
+            "name": "Turbo Test",
+            "variables":
+            [
+                {
+                    "name": "Temperatura do Ar no Restritor",
+                    "id": 9
+                },
+                {
+                    "name": "Temperatura do Ar na Entrada do Turbo",
+                    "id": 10
+                },
+                {
+                    "name": "Temperatura do Ar na Saída do Turbo",
+                    "id": 11
+                },
+                {
+                    "name": "Pressão do Ar no Restritor",
+                    "id": 12
+                },
+                {
+                    "name": "Pressão do Ar na Entrada do Turbo",
+                    "id": 13
+                },
+                {
+                    "name": "Pressão do Ar na Saída do Turbo",
+                    "id": 14
+                }
+            ]
+        },
+        {
+            "name": "Injection Test",
+            "variables":
+            [
+                {
+                    "name": "Temperatura do Líquido de Arrefecimento",
+                    "id": 15
+                },
+                {
+                    "name": "Posição da Borboleta",
+                    "id": 16
+                },
+                {
+                    "name": "Rotação do Motor",
+                    "id": 17
+                },
+                {
+                    "name": "Pressão do Ar no Coletor de Admissão",
+                    "id": 18
+                },
+                {
+                    "name": "Temperatura do Ar no Coletor de Admissão",
+                    "id": 19
+                },
+                {
+                    "name": "Volume de oxigênio Pós-combustão",
+                    "id": 20
+                },
+                {
+                    "name": "Velocidade na saída do câmbio",
+                    "id": 21
+                }
+            ]
+        },
+        {
+            "name": "Back Test",
+            "variables":
+            [
+                {
+                    "name": "Aceleração Lateral Traseira",
+                    "id": 22
+                },
+                {
+                    "name": "Aceleração Longitudinal Traseira",
+                    "id": 23
+                },
+                {
+                    "name": "Nível de Combustível",
+                    "id": 24
+                }
+            ]
+        }
+    ]
+}

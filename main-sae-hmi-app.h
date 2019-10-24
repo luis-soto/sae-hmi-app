@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMap>
+#include "base-test-window.h"
 
 namespace Ui
 {
@@ -14,22 +15,14 @@ class MainSAEHMIApp : public QWidget
     Q_OBJECT
 
     public:
-        MainSAEHMIApp(QWidget *parent = nullptr);
+        MainSAEHMIApp(QWidget* parent = nullptr);
         ~MainSAEHMIApp();
 
     private:
         Ui::MainSAEHMIApp* ui;
-        QMap<QString, QWidget*> testsWindows;
 
+        BaseTestWindow* addPageToStackedWindow(const QString& windowTitle);
         void createWindows();
-
-    public slots:
-        void onbtnPilotView_clicked();
-        void onbtnFrontTest_clicked();
-        void onbtnTurboTest_clicked();
-        void onbtnInjectionTest_clicked();
-        void onbtnBackTest_clicked();
-        void onbtnCommTest_clicked();
 };
 
 #endif // MAINSAEHMIAPP_H
