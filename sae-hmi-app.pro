@@ -16,6 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp
+SOURCES += pilot-view.cpp
+SOURCES += system-configuration.cpp
 SOURCES += can-interface/can-interface.cpp
 SOURCES += base-plot.cpp
 SOURCES += base-test-window.cpp
@@ -23,12 +25,16 @@ SOURCES += qcustomplot/qcustomplot.cpp
 SOURCES += main-sae-hmi-app.cpp
 
 HEADERS += main-sae-hmi-app.h
+HEADERS += pilot-view.h
+HEADERS += system-configuration.h
 HEADERS += can-interface/can-interface.h
 HEADERS += base-plot.h
 HEADERS += base-test-window.h
 HEADERS += qcustomplot/qcustomplot.h
 
 FORMS += main-sae-hmi-app.ui
+FORMS += pilot-view.ui
+FORMS += system-configuration.ui
 FORMS += base-plot.ui
 FORMS += base-test-window.ui
 
