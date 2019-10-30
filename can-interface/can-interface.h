@@ -13,10 +13,6 @@ class CANInterface : public QWidget
         explicit CANInterface(QWidget* parent = nullptr);
         ~CANInterface();
 
-        void createGenerator();
-
-        QTimer* _dataGenerator{nullptr};
-
     signals:
         void newDataReceived(const qint32 id, const qint32 data);
 

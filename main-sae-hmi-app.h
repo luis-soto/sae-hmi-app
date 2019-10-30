@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QMap>
-#include "base-test-window.h"
 
 namespace Ui
 {
@@ -19,10 +18,17 @@ class MainSAEHMIApp : public QWidget
         ~MainSAEHMIApp();
 
     private:
-        Ui::MainSAEHMIApp* ui;
+        Ui::MainSAEHMIApp* _ui;
 
-        BaseTestWindow* addPageToStackedWindow(const QString& windowTitle);
-        void createWindows();
+        QWidget* addPageToStackedWindow(const QString& windowTitle);
+
+        void addPageToStackedWindow(QWidget* const wid);
+
+        void initializePilotView();
+
+        void initializeTests();
+
+        void initializeSystemConfiguration();
 };
 
 #endif // MAINSAEHMIAPP_H

@@ -22,16 +22,22 @@ class BasePlot : public QWidget
         const QString& getTitle() const;
 
     private:
-        Ui::BasePlot* ui;
+        Ui::BasePlot* _ui;
         qint32 _id;
         QString _title;
-        QVector<qreal> dataX;
-        QVector<qreal> dataY;
+        QVector<qreal> _dataX;
+        QVector<qreal> _dataY;
+        qreal _propConst{1};
+
+        static qreal findMinimum(const QVector<qreal>& data);
+        static qreal findMaximum(const QVector<qreal>& data);
 
     signals:
 
     public slots:
         void newDataReceived(const qint32 id, const qint32 data);
+
+        void updatePlot();
 };
 
 #endif // BASEPLOT_H

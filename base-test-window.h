@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QList>
-#include "base-plot.h"
 
 namespace Ui
 {
@@ -27,9 +26,10 @@ class BaseTestWindow : public QWidget
         QList<QWidget*> _plots;
 
     signals:
+        void visibilityChanged();
 
     private slots:
-        void nextPage();
+        void on_btnNextPage_clicked();
 };
 
 #endif // BASETESTWINDOW_H

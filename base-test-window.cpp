@@ -1,5 +1,6 @@
 #include "base-test-window.h"
 #include "ui_base-test-window.h"
+#include "base-plot.h"
 #include <QDebug>
 //--------------------------------------------------------------------------------------------------
 static const qint32 SIZE{2};
@@ -11,8 +12,6 @@ BaseTestWindow::BaseTestWindow(QWidget* parent, const QString& title):
     ui->setupUi(this);
     setTitle(title);
     ui->btnNextPage->setVisible(false);
-
-    connect(ui->btnNextPage, &QPushButton::clicked, this, &BaseTestWindow::nextPage, Qt::UniqueConnection);
 }
 //--------------------------------------------------------------------------------------------------
 BaseTestWindow::~BaseTestWindow()
@@ -22,7 +21,11 @@ BaseTestWindow::~BaseTestWindow()
 //--------------------------------------------------------------------------------------------------
 void BaseTestWindow::addPlot(const QString& title, const qint32 id)
 {
-    _plots.push_back(new BasePlot(title, id, this));
+    BasePlot* newPlot{new BasePlot(title, id, this)};
+
+    _plots.push_back(newPlot);
+
+    connect(this, &BaseTestWindow::visibilityChanged, newPlot, &BasePlot::updatePlot);
 }
 //--------------------------------------------------------------------------------------------------
 void BaseTestWindow::setTitle(const QString& title)
@@ -37,7 +40,7 @@ void BaseTestWindow::mountView()
 
     QGridLayout* layout{nullptr};
 
-    for(auto* basePlot : _plots)
+    for(QWidget* const basePlot : _plots)
     {
         if(ITEMS_BY_PAGE <= pageIdx)
         {
@@ -58,15 +61,19 @@ void BaseTestWindow::mountView()
         qint32 x{pageIdx/SIZE};
         qint32 y{pageIdx%SIZE};
 
-        if((_plots.size() == idx+1) && (layout->count() == 2))
-        {
-            colSpan++;
-        }
 
-        if((_plots.size() == idx+1) && (layout->count() == 1))
+        if(_plots.size() == idx+1)
         {
-            x = 1;
-            y = 0;
+            if(layout->count() == 2)
+            {
+                colSpan++;
+            }
+
+            if(layout->count() == 1)
+            {
+                x = 1;
+                y = 0;
+            }
         }
 
         layout->addWidget(basePlot, x, y, rowSpan, colSpan);
@@ -78,7 +85,7 @@ void BaseTestWindow::mountView()
     ui->btnNextPage->setVisible(ui->stackedWidget->count() > 1);
 }
 //--------------------------------------------------------------------------------------------------
-void BaseTestWindow::nextPage()
+void BaseTestWindow::on_btnNextPage_clicked()
 {
     const qint32 numberOfPages{ui->stackedWidget->count()};
 
